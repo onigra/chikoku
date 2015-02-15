@@ -1,0 +1,7 @@
+h1 Home#index
+
+- if current_user
+  private
+  = current_user
+- else
+  = link_to 'ログイン', '/auth/twitter'
