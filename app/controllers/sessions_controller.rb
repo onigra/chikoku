@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
   def create
-    ap request.env['omniauth.auth']
-    # @user = User.find_or_create_from_auth_hash(auth_hash)
-    # self.current_user = @user
+    ap auth_hash
+    user = User.find_or_create_from_auth_hash(auth_hash)
+    session[:user_id] = user.id
+    redirect_to '/'
+  end
+
+  def destroy
+    session[:user_id] = nil
     redirect_to '/'
   end
 

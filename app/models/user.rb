@@ -11,4 +11,19 @@
 #
 
 class User < ActiveRecord::Base
+  def self.find_or_create_from_auth_hash(auth_hash)
+    user = self.find_by(twitter_id: auth_hash["extra"]["raw_info"]["id"])
+
+    unless user
+      user = self.new(
+        twitter_id: auth_hash["extra"]["raw_info"]["id"],
+        name:       auth_hash["info"]["nickname"],
+        image:      auth_hash["info"]["image"]
+      )
+
+      user.save
+    end
+
+    user
+  end
 end
