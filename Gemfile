@@ -18,6 +18,7 @@ gem "slim-rails", github: "slim-template/slim-rails"
 gem "httparty"
 gem "omniauth"
 gem "omniauth-twitter"
+gem "activerecord-mysql-awesome"
 
 # gem 'unicorn'
 
