@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: chikoku_notification_development
+
+test:
+  <<: *default
+  database: chikoku_notification_test
+
+production:
+  <<: *default
+  database: chikoku_notification_production
+  username: chikoku_notification
+  password: <%= ENV['CHIKOKU_NOTIFICATION_DATABASE_PASSWORD'] %>
