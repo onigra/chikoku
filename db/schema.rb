@@ -11,6 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150215124658) do
 
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "twitter_id", limit: 4,   null: false
+    t.string   "name",       limit: 255, null: false
+    t.string   "image",      limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "users", ["twitter_id"], name: "index_users_on_twitter_id", unique: true, using: :btree
 end
