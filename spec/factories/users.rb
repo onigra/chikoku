@@ -16,6 +16,10 @@ FactoryGirl.define do
     twitter_id 301244995
     name "nekogeruge_987"
     image "http://pbs.twimg.com/profile_images/378800000057979446/39eb8dbe5c61459b6bc1377f54587c52_normal.jpeg"
+
+    after :create do |u|
+      create :chikoku, user_id: u.id
+    end
   end
 
 end
