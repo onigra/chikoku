@@ -15,7 +15,7 @@
 class SlackNotification < ActiveRecord::Base
   belongs_to :user
 
-  def post_notify
+  def send_message
     HTTParty.post(
       request_url,
       body: {

@@ -15,9 +15,9 @@
 require 'rails_helper'
 
 describe SlackNotification do
-  describe "#post_notify" do
+  describe "#send_message" do
     let(:user) { FactoryGirl.create :nekogeruge }
-    subject { user.slack_notification.post_notify }
+    subject { user.slack_notification.send_message }
     it { expect(subject.response.body).to eq "ok" }
   end
 end
