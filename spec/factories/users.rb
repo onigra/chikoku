@@ -19,6 +19,7 @@ FactoryGirl.define do
 
     after :create do |u|
       create :chikoku, user_id: u.id
+      create :gotanda, user_id: u.id
     end
   end
 
