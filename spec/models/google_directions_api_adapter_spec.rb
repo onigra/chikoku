@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe GoogleDirectionsApiAdapter do
-  describe ".get_duration" do
+  describe "#get_duration" do
     let(:origin) { "目白" }
     let(:destination) { "五反田" }
 
