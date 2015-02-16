@@ -100,6 +100,7 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.6)
     formatador (0.2.5)
+    geocoder (1.2.7)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     growl (1.0.3)
@@ -304,6 +305,7 @@ DEPENDENCIES
   database_rewinder
   factory_girl_rails
   faker
+  geocoder
   growl
   guard
   guard-rails

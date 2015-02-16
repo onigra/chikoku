@@ -19,6 +19,7 @@ gem "httparty"
 gem "omniauth"
 gem "omniauth-twitter"
 gem "activerecord-mysql-awesome"
+gem "geocoder"
 
 # gem 'unicorn'
 
