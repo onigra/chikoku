@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.integer :twitter_id, null: false
+      t.integer :twitter_id, limit: 8, null: false
       t.string :name, null: false
       t.string :image, null: false
 

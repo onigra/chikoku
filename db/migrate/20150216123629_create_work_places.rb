@@ -3,7 +3,8 @@ class CreateWorkPlaces < ActiveRecord::Migration
     create_table :work_places do |t|
       t.integer :user_id, null: false
       t.string :destination, null: false
-      t.string :limit, null: false
+      t.integer :hour, limit: 2, null: false
+      t.integer :min, limit: 2, null: false
 
       t.timestamps null: false
     end
