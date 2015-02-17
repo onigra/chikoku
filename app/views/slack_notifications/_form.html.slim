@@ -1,0 +1,21 @@
+= form_for @slack_notification, url: '/slack' do |f|
+  - if @slack_notification.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@slack_notification.errors.count, "error")} prohibited this slack_notification from being saved:"
+      ul
+        - @slack_notification.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :slack_name
+    = f.text_field :slack_name
+  .field
+    = f.label :emoji
+    = f.text_field :emoji
+  .field
+    = f.label :request_url
+    = f.text_field :request_url
+  .field
+    = f.label :message
+    = f.text_area :message
+  .actions = f.submit
