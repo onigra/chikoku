@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get   '/slack/edit', to: 'slack_notifications#edit'
   patch '/slack',      to: 'slack_notifications#update'
   put   '/slack',      to: 'slack_notifications#update'
+
+  post '/send_message/slack', to: 'messengers#slack'
 end
