@@ -16,15 +16,14 @@ class SlackNotification < ActiveRecord::Base
   belongs_to :user
 
   def send_message
-    HTTParty.post(
-      request_url,
-      body: {
-        payload: {
-          text:       message,
-          username:   slack_name,
-          icon_emoji: emoji
-        }.to_json
-      }
-    )
+    HTTParty.post(request_url, body: { payload: payload })
+  end
+
+  def payload
+    {
+      text:       message,
+      username:   slack_name,
+      icon_emoji: emoji
+    }.to_json
   end
 end
