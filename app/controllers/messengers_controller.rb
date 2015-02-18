@@ -1,4 +1,6 @@
 class MessengersController < ApplicationController
+  before_action :authenticated
+
   def slack
     Messenger.new(current_user, SlackNotification).send_message
     redirect_to '/'

@@ -1,4 +1,5 @@
 class SlackNotificationsController < ApplicationController
+  before_action :authenticated
   before_action :set_slack_notification, only: [:edit, :update]
 
   # GET /slack/new

@@ -1,4 +1,5 @@
 class WorkPlacesController < ApplicationController
+  before_action :authenticated
   before_action :set_work_place, only: [:edit, :update]
 
   # GET /work_places/new
