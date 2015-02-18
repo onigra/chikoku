@@ -1,13 +1,16 @@
 class WorkPlacesController < ApplicationController
   before_action :set_work_place, only: [:edit, :update]
 
+  # GET /work_places/new
   def new
     @work_place = WorkPlace.new
   end
 
+  # GET /work_places/edit
   def edit
   end
 
+  # POST /work_places
   def create
     @work_place = WorkPlace.new(new_work_place)
 
@@ -22,6 +25,7 @@ class WorkPlacesController < ApplicationController
     end
   end
 
+  # PUT PATCH /work_places
   def update
     respond_to do |format|
       if @work_place.update(work_place_params)

@@ -1,13 +1,16 @@
 class SlackNotificationsController < ApplicationController
   before_action :set_slack_notification, only: [:edit, :update]
 
+  # GET /slack/new
   def new
     @slack_notification = SlackNotification.new
   end
 
+  # GET /slack/edit
   def edit
   end
 
+  # POST /slack
   def create
     @slack_notification = SlackNotification.new(new_spack_notification)
 
@@ -22,6 +25,7 @@ class SlackNotificationsController < ApplicationController
     end
   end
 
+  # PUT PATCH /slack
   def update
     respond_to do |format|
       if @slack_notification.update(slack_notification_params)
