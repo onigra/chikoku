@@ -52,8 +52,8 @@ describe TimeLimit do
       let(:time_limit) { TimeLimit.new(user, lat, lng) }
       subject { time_limit.duration }
 
-      it "移動時間は1604秒" do
-        should eq 1604
+      it "移動時間は1599秒" do
+        should eq 1599
       end
     end
   end
