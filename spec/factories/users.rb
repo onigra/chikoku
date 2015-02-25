@@ -23,4 +23,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :has_not_create_destination, class: User do
+    twitter_id 301244995
+    name "nekogeruge_987"
+    image "http://pbs.twimg.com/profile_images/378800000057979446/39eb8dbe5c61459b6bc1377f54587c52_normal.jpeg"
+  end
+
 end

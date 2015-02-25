@@ -19,4 +19,10 @@ FactoryGirl.define do
     min 0
   end
 
+  factory :mejiro, class: WorkPlace do
+    destination "目白駅"
+    hour 10
+    min 30
+  end
+
 end

@@ -4,11 +4,16 @@ class WorkPlacesController < ApplicationController
 
   # GET /work_places/new
   def new
-    @work_place = WorkPlace.new
+    if current_user.work_place
+      redirect_to work_places_edit_path
+    else
+      @work_place = WorkPlace.new
+    end
   end
 
   # GET /work_places/edit
   def edit
+    redirect_to work_places_new_path unless current_user.work_place
   end
 
   # POST /work_places
