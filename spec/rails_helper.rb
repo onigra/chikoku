@@ -13,6 +13,7 @@ FG = FactoryGirl
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include AuthHelpers
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
