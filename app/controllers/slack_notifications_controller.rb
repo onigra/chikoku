@@ -4,11 +4,16 @@ class SlackNotificationsController < ApplicationController
 
   # GET /slack/new
   def new
-    @slack_notification = SlackNotification.new
+    if current_user.slack_notification
+      redirect_to slack_edit_path
+    else
+      @slack_notification = SlackNotification.new
+    end
   end
 
   # GET /slack/edit
   def edit
+    redirect_to slack_new_path unless current_user.slack_notification
   end
 
   # POST /slack

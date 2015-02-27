@@ -21,4 +21,11 @@ FactoryGirl.define do
     message "遅刻連絡アプリのテスト"
   end
 
+  factory :slack_update, class: SlackNotification do
+    request_url "https://hooks.slack.com/services/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"
+    slack_name "yudai-bot"
+    emoji ":pray:"
+    message "メッセージ更新のテスト"
+  end
+
 end
