@@ -16,9 +16,14 @@ describe "WorkPlaces", type: :request do
       end
 
       context "未作成" do
-        it "return 302" do
+        let(:user) { FG.create :has_not_create_destination }
+
+        before { user }
+
+        it "return 200" do
+          login
           get work_places_new_path
-          expect(response).to have_http_status 302
+          expect(response).to have_http_status 200
         end
       end
     end
