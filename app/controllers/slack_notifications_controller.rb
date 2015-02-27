@@ -24,7 +24,7 @@ class SlackNotificationsController < ApplicationController
       if @slack_notification.save
         format.html { redirect_to root_path, notice: 'Slack notification was successfully created.' }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', status: :not_modified }
       end
     end
   end

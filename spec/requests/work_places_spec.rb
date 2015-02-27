@@ -96,9 +96,25 @@ describe "WorkPlaces", type: :request do
 
         before { user }
 
-        it "一意性制約エラー" do
+        it "return 304" do
           login
-          expect { post work_places_path({ work_place: param }) }.to raise_error ActiveRecord::RecordNotUnique
+          post work_places_path({ work_place: param })
+          expect(response).to have_http_status 304
+        end
+
+        it "件数は1件のまま" do
+          login
+          post work_places_path({ work_place: param })
+          expect(WorkPlace.where(user_id: user.id).count).to eq 1
+        end
+
+        it "既存のデータが更新されない" do
+          login
+          post work_places_path({ work_place: param })
+
+          expect(user.work_place.destination).not_to eq param[:destination]
+          expect(user.work_place.hour).not_to eq param[:hour]
+          expect(user.work_place.min).not_to eq param[:min]
         end
       end
     end

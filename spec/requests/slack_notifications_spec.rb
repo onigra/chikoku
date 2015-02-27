@@ -93,13 +93,29 @@ RSpec.describe "SlackNotifications", type: :request do
 
       context "出勤先作成済" do
         let(:user) { FG.create :nekogeruge }
-        let(:param) { FG.attributes_for :chikoku }
+        let(:param) { FG.attributes_for :slack_update }
 
         before { user }
 
-        it "一意性制約エラー" do
+        it "return 304" do
           login
-          expect { post slack_path({ slack_notification: param }) }.to raise_error ActiveRecord::RecordNotUnique
+          post slack_path({ slack_notification: param })
+          expect(response).to have_http_status 304
+        end
+
+        it "件数は1件のまま" do
+          login
+          post slack_path({ slack_notification: param })
+          expect(SlackNotification.where(user_id: user.id).count).to eq 1
+        end
+
+        it "既存のデータが更新されない" do
+          login
+          post slack_path({ slack_notification: param })
+
+          expect(user.slack_notification.slack_name).not_to eq param[:slack_name]
+          expect(user.slack_notification.emoji).not_to eq param[:emoji]
+          expect(user.slack_notification.message).not_to eq param[:message]
         end
       end
     end

@@ -24,7 +24,7 @@ class WorkPlacesController < ApplicationController
       if @work_place.save
         format.html { redirect_to root_path, notice: 'WorkPlace was successfully created.' }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', status: :not_modified }
       end
     end
   end

@@ -15,6 +15,9 @@
 class SlackNotification < ActiveRecord::Base
   belongs_to :user
 
+  validates_presence_of :user_id, :request_url, :message
+  validates :user_id, uniqueness: true
+
   def send_message
     HTTParty.post(request_url, body: { payload: payload })
   end
