@@ -23,10 +23,8 @@ class SlackNotificationsController < ApplicationController
     respond_to do |format|
       if @slack_notification.save
         format.html { redirect_to root_path, notice: 'Slack notification was successfully created.' }
-        format.json { render json: @slack_notification, status: :created }
       else
         format.html { render action: 'new' }
-        format.json { render json: @slack_notification.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -36,10 +34,8 @@ class SlackNotificationsController < ApplicationController
     respond_to do |format|
       if @slack_notification.update(slack_notification_params)
         format.html { redirect_to root_path, notice: 'Slack notification was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @slack_notification.errors, status: :unprocessable_entity }
       end
     end
   end
