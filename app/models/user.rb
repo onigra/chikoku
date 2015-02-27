@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_one :slack_notification
   has_one :work_place
 
-  def self.find_or_create_from_auth_hash(auth_hash)
+  def self.find_or_create(auth_hash)
     user = self.find_by(twitter_id: auth_hash["extra"]["raw_info"]["id"])
 
     unless user

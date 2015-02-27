@@ -13,7 +13,7 @@
 require 'rails_helper'
 
 describe User do
-  describe ".find_or_create_from_auth_hash" do
+  describe ".find_or_create" do
     let(:auth_hash) do
       {
         "provider" => "twitter",
@@ -97,7 +97,7 @@ describe User do
 
     context "ユーザーが存在する" do
       let(:user) { FactoryGirl.create :nekogeruge }
-      subject { User.find_or_create_from_auth_hash auth_hash }
+      subject { User.find_or_create auth_hash }
 
       it "存在しているユーザーのオブジェクトが取得できる" do
         should eq user
@@ -105,7 +105,7 @@ describe User do
     end
 
     context "ユーザーが存在しない" do
-      subject { User.find_or_create_from_auth_hash auth_hash }
+      subject { User.find_or_create auth_hash }
 
       it "新規ユーザーが作成される" do
         subject.reload
