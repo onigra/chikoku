@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+options =
+  enableHighAccuracy: true
+  timeout: 5000
+  maximumAge: 0
+
+success = (pos) ->
+  console.log pos.coords.latitude
+  console.log pos.coords.longitude
+
+error = (err) ->
+  console.warn 'ERROR(' + err.code + '): ' + err.message
+
+navigator.geolocation.getCurrentPosition success, error, options
