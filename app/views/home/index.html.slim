@@ -8,7 +8,7 @@ h1 Home#index
       = link_to '勤務地情報登録', work_places_new_path
   h2 Slack
   - if current_user.slack_notification
-      = button_to '送信', send_message_slack_path
+      = button_tag '確認', id: 'check'
       = link_to '更新', slack_edit_path
   - else
       = link_to 'Slack情報登録', slack_new_path
