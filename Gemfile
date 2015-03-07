@@ -14,6 +14,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
 
 gem "slim-rails", github: "slim-template/slim-rails"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 gem "httparty"
 gem "omniauth"
