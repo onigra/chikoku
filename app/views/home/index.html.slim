@@ -1,16 +1,4 @@
-h1 Home#index
-
 - if current_user
-  h2 勤務地
-  - if current_user.work_place
-      = link_to '更新', work_places_edit_path
-  - else
-      = link_to '勤務地情報登録', work_places_new_path
-  h2 Slack
-  - if current_user.slack_notification
-      = button_tag '確認', id: 'check'
-      = link_to '更新', slack_edit_path
-  - else
-      = link_to 'Slack情報登録', slack_new_path
+  = button_tag '確認', id: 'check'
 - else
   = link_to 'ログイン', '/auth/twitter'
